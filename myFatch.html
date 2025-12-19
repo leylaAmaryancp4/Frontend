@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function  myFetch(url, options = {}){
+    return new Promise((resolve, reject) =>{
+        const xhl = new XMLHttpRequest();
+        const method = options.method || 'Get';
+        xhl.open(method,url,true)
+  
+  
+        // Headers
+        if(options.headers){
+            for(let key of options.headers){
+                xhl.setRequestHeader(key, options.headers[key]);
+        }
+    }
+
+     // Response handling
+     xhl.onload = () =>{
+        const response = {
+            ok:xhl.status >= 200 && xhl.status < 300,
+            status:xhl.status,
+            statusText: xhl.statusText,
+            text: ()=> Promise.resolve(xhl.responseText),
+            json: () => Promise.resolve(JSON.parse(xhl.responseText)),
+        }
+        resolve(response)
+     }
+
+     xhl.onerror=()=>{
+        reject(new TypeError("Request failed"));
+     }
+
+     // Send request
+     if(options.body){
+        xhl.send(JSON.stringify(options.body));
+
+     }else{
+        xhl.send();
+     }
+
+    })
+}
+
+  
+
+// GET request
+myFetch("https://jsonplaceholder.typicode.com/users")
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.log(err)); 
+
+// POST request
+myFetch("https://jsonplaceholder.typicode.com/users",{
+method:"POST",
+headers: {"Content-Type": "application/json"},
+body:{name:"Leyla"}
+})
+
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.log(err));
+
+
+
+    </script>
+</body>
+</html>
