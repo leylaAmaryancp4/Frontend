@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Show/Hide a Paragraph</title>
+    <script src = "script.js"></script>
+    <style>
+    #div1{
+        background:greenyellow;
+        padding: 50px;
+    }     
+    </style>
+    
+
+    <body>
+        <html>
+            <button id = "butt" onclick="div()">Hide</button>
+            <p id = "text">
+
+            </p>
+         <div id ="div1">   Hello my friend</div>
+            
+            <script>
+            function div()
+{
+    if (document.getElementById("butt").innerHTML === "Hide")
+    {
+        document.getElementById("butt").innerHTML = "show"
+        document.getElementById("text").style.display = "none";
+    }
+    else
+    {
+        document.getElementById("butt").innerHTML = "Hide"
+        document.getElementById("text").style.display = "block";
+    } 
+
+}  
+</script>
+
+    
+
+</body>
+</html>

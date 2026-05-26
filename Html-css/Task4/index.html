@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "script.js"></script>
+    <script src = "script.js"></script>
+</head>
+<body>
+
+    <button onclick="mycode()">Click</button>
+    <p id="test">Hello</p>
+    <script>
+     function mycode(){
+ var x = document.getElementById("test");
+ if(x.innerHTML === "Hello"){
+    x.innerHTML = "Goodbye";
+ }       else{
+    x.innerHTML ="Hello";
+
+ }
+}
+</script>
+<button id = "but"onclick = "clickme()">Click</button>
+<script>
+    function clickme(){
+        document.getElementById("but").innerHTML = "chenged"
+
+    }
+    </script>
+
+    </script>
+
+       
+</body>
+</html>

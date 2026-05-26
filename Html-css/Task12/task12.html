@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Implement a Basic Slider with Array Data</title>
+    
+</head>
+<body>
+    <img src = "" alt ="image" id = "img">
+    <button onclick = "next()">Next</button>
+    <button onclick = "back()">Back</button>
+    <style>
+        body
+        {text-align:center;
+            bacground-color:bisque;
+        }
+        #img{width: 50%;
+        border-radius:10px;
+    }
+        </style>
+        <script>
+            var i = 0;
+            var img = document.getElementById("img");
+            img.src = "1.png";
+            var array = ["https://cdn.mos.cms.futurecdn.net/FaWKMJQnr2PFcYCmEyfiTm-1200-80.jpg","https://img.etimg.com/thumb/msid-101634906,width-480,height-360,imgsize-83338,resizemode-75/the-anthropocene.jpg","https://hips.hearstapps.com/hmg-prod/images/eath-signs-64f7785e2726f.png","https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/03/towards_earth_explorer_11/21893533-2-eng-GB/Towards_Earth_Explorer_11_pillars.jpg"];
+            function next(){
+                i++;
+                img.src = array[i];
+                if(i == 3){i = 0;
+                }
+            }
+                function back(){
+                    if(i ==0){
+                        i = 3;
+                    } i --;
+                    img.src = array[i];
+                }
+
+                
+            
+            </script>
+</body>
+</html>
